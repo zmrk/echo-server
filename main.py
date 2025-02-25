@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import Flask, request
 
 app = Flask(__name__)
@@ -14,7 +15,14 @@ app = Flask(__name__)
 )
 def echo(path):
     data = request.get_data(as_text=True)
-    return {"url": request.url, "method": request.method, "data": data, "path": path}
+    current_time = datetime.now().isoformat()
+    return {
+        "url": request.url,
+        "method": request.method,
+        "data": data,
+        "path": path,
+        "time": current_time,
+    }
 
 
 if __name__ == "__main__":
