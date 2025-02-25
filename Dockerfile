@@ -11,4 +11,4 @@ RUN        pipenv sync
 COPY       *.py ./
 
 EXPOSE     9000
-CMD        ["sh", "-c", "python -u main.py"]
+CMD        ["sh", "-c", "pipenv run python -u main.py"]
