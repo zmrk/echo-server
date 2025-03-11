@@ -15,6 +15,8 @@ app = Flask(__name__)
 )
 def echo(path):
     data = request.get_data(as_text=True)
+    if data:
+        print(data)
     current_time = datetime.now().isoformat()
     return {
         "url": request.url,
